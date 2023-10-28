@@ -7,7 +7,7 @@ import Content from "./_components/Content";
 import Indulgence from "./_components/Indulgence";
 import Push from "./_components/Push";
 import Reaction from "./_components/Reaction";
-import styles from "./_css/style.module.scss";
+import styles from "./_css/utils.module.scss";
 
 export default function Home() {
   const [phase, setPhase] = useState<number>(0);
@@ -34,11 +34,13 @@ export default function Home() {
   };
 
   return (
-    <main className={styles.sideBySideCenter}>
+    <main className={styles.sideBySide}>
       {phase == 0 && <SideBar />}
-      {phase == 0 && <Reaction onPhaseChange={handlePhaseChange} />}
-      {phase == 1 && <Indulgence mode={mode} onPhaseChange={handlePhaseChange} />}
-      {phase == 2 && <Content count={count} mode={mode} onPhaseChange={handlePhaseChange} />}
+      <div className={styles.putCenter}>
+        {phase == 0 && <Reaction onPhaseChange={handlePhaseChange} />}
+        {phase == 1 && <Indulgence mode={mode} onPhaseChange={handlePhaseChange} />}
+        {phase == 2 && <Content count={count} mode={mode} onPhaseChange={handlePhaseChange} />}
+      </div>
     </main>
   );
 }

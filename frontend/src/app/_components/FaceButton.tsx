@@ -11,15 +11,15 @@ type FaceButtonProps = {
 };
 
 const FaceButton: FC<FaceButtonProps> = ({ title, emoji, mode, onPhaseChange }) => {
-  const facePressed = (mode_: string, count_: number) => {
-    onPhaseChange(1, mode_, count_, "");
+  const facePressed = (mode_: string) => {
+    onPhaseChange(1, mode_, 0, "");
   };
 
   return (
     <div className={styles.faceButton}>
       <div>
         <p>{title}</p>
-        <Button onClick={() => facePressed(mode, 0)}>{emoji}</Button>
+        <Button onClick={() => facePressed(mode)}>{emoji}</Button>
       </div>
     </div>
   );

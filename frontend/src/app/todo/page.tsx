@@ -1,14 +1,13 @@
-import SideBar from "@/components/SideBar"
-import styles from './_css/style.module.scss'
+import SideBar from "@/components/SideBar";
+
+import styles from "./_css/style.module.scss";
 
 export default function Home() {
   return (
     <main>
       <SideBar />
 
-      <div className={styles.main}>
-
-      </div>
+      <div className={styles.main}></div>
     </main>
-  )
+  );
 }

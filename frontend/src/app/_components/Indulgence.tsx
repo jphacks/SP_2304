@@ -2,7 +2,7 @@ import { Close } from "@mui/icons-material";
 import { Button, IconButton } from "@mui/material";
 import React, { useState } from "react";
 
-import styles from "../_css/style.module.scss";
+import styles from "../_css/Indulgence.module.scss";
 
 type Props = {
   mode: string;
@@ -22,7 +22,7 @@ const Indulgence = (props: Props) => {
   };
 
   return (
-    <div className={styles.main}>
+    <div>
       <IconButton
         className={styles.closeButton}
         onClick={() => {
@@ -31,8 +31,8 @@ const Indulgence = (props: Props) => {
       >
         <Close />
       </IconButton>
-      <div className={styles.stressWrapper}>
-        <div className={styles.stressButton}>
+      <div className={styles.reactionWrapper}>
+        <div className={styles.reactionButton}>
           <p>連打しろ！！！</p>
           <Button
             className={styles.iconButton}

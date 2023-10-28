@@ -2,7 +2,7 @@ import { Close } from "@mui/icons-material";
 import { IconButton, Button, TextField } from "@mui/material";
 import React, { useState } from "react";
 
-import styles from "../_css/style.module.scss";
+import styles from "../_css/Content.module.scss";
 
 type Props = {
   count: number;
@@ -23,7 +23,7 @@ const Content = (props: Props) => {
   };
 
   return (
-    <div className={styles.main}>
+    <div>
       <IconButton
         className={styles.closeButton}
         onClick={() => {

@@ -1,12 +1,14 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import styles from './_css/style.module.scss'
-import SideBar from '@/components/SideBar'
-import { AppBar, List, ListItemIcon, ListItemButton, Divider } from '@mui/material'
-import { AutoAwesome, ConfirmationNumber } from '@mui/icons-material'
-import TLIndulgence from './_components/TLIndulgence'
-import TLTodo from './_components/TLTodo'
+import { AutoAwesome, ConfirmationNumber } from "@mui/icons-material";
+import { AppBar, List, ListItemIcon, ListItemButton, Divider } from "@mui/material";
+import { useState } from "react";
+
+import SideBar from "@/components/SideBar";
+
+import TLIndulgence from "./_components/TLIndulgence";
+import TLTodo from "./_components/TLTodo";
+import styles from "./_css/style.module.scss";
 
 export default function Home() {
   const [timelineId, setTimelineId] = useState(0);
@@ -15,28 +17,32 @@ export default function Home() {
     <main>
       <SideBar />
 
-      <div className='main'>
+      <div className="main">
         <AppBar
-          position='sticky'
-          sx={{
-            width: '100%',
-            backgroundColor: 'white',
-          }}
           className={styles.appBar}
+          position="sticky"
+          sx={{
+            backgroundColor: "white",
+            width: "100%",
+          }}
         >
           <List>
             <ListItemButton
-              onClick={() => {setTimelineId(0)}}
+              onClick={() => {
+                setTimelineId(0);
+              }}
             >
               <ListItemIcon>
                 <AutoAwesome />
               </ListItemIcon>
             </ListItemButton>
 
-            <Divider orientation='vertical' flexItem />
+            <Divider flexItem orientation="vertical" />
 
             <ListItemButton
-              onClick={() => {setTimelineId(1)}}
+              onClick={() => {
+                setTimelineId(1);
+              }}
             >
               <ListItemIcon>
                 <ConfirmationNumber />
@@ -49,5 +55,5 @@ export default function Home() {
         {timelineId == 1 && <TLIndulgence />}
       </div>
     </main>
-  )
+  );
 }
