@@ -1,9 +1,12 @@
-import React from 'react'
+import SideBar from '@/components/SideBar'
 
-const page = () => {
+
+export default function Home() {
   return (
-    <div></div>
+    <main className="indulgence-wrapper">
+      <SideBar />
+
+      <h1>タイトル</h1>
+    </main>
   )
 }
-
-export default page
