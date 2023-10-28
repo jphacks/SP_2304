@@ -1,0 +1,75 @@
+.indulgenceWrapper {
+  display: flex;
+  flex-direction: column;
+  // 縦方向
+  align-items: center;
+
+  //横
+  justify-content: center;
+  width: calc(100vw - 80px);
+
+  .appTitle{
+    width: 100%;
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .faceButtonWrapper{
+    display: flex;
+
+      .faceButton{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        p{
+          text-align: center;
+        }
+
+        Button{
+        font-size: 5rem;
+        // border-radius: 50%;
+      }
+    }
+  }
+}
+
+.closeButton{
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+}
+
+.stressWrapper{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  .stressButton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .iconButton{
+      font-size: 14rem;
+    }
+
+    .text{
+      font-size: 1rem;
+    }
+  }
+}
+
+.contentWrapper{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  .contentForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}

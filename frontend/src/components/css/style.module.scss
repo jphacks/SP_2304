@@ -1,0 +1,13 @@
+$sideBarWidth: 80px;
+
+.sideBarWrapper{
+  // position: sticky;
+  left: 0;
+  width: $sideBarWidth;
+  height: 100vh;
+
+  border-right: 1px solid rgba($color: #000000, $alpha: 0.25);
+  li{
+    width: $sideBarWidth;
+  }
+}
