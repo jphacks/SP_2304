@@ -1,5 +1,5 @@
 .faceButton {
-  composes:sideBySide from './style.module.scss';
+  composes:sideBySide from './utils.module.scss';
 
   p{
     text-align: center;
