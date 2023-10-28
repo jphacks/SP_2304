@@ -6,16 +6,15 @@ import { IconButton, Button } from '@mui/material'
 // import { phaseContext } from '../page'
 
 type Props = {
-  phase: number;
-  onPhaseChange: (num: number) => void
+  onPhaseChange: (phase: number, mode: string, count: number, content: string) => void
 }
 
 const Reaction = (props: Props) => {
   // const {phase, setPhase} = useContext(phaseContext)
-  const {phase, onPhaseChange} = props;
+  const {onPhaseChange} = props;
 
-  const facePressed = (phase_: number) => {
-    onPhaseChange(phase_);
+  const facePressed = (phase: number, mode: string, count: number) => {
+    onPhaseChange(phase, mode, count, '');
   }
 
   return (
@@ -26,7 +25,7 @@ const Reaction = (props: Props) => {
         <div className={styles.faceButton}>
           <p>ストレス</p>
           <Button
-            onClick={() => facePressed(1)}
+            onClick={() => facePressed(1, 'stress', 0)}
           >
             😤
           </Button>
@@ -34,7 +33,7 @@ const Reaction = (props: Props) => {
         <div className={styles.faceButton}>
           <p>善行</p>
           <Button
-            onClick={() => facePressed(2)}
+            onClick={() => facePressed(2, 'benefaction', 0)}
           >🥰</Button>
         </div>
       </div>

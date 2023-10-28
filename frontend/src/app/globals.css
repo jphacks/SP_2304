@@ -5,3 +5,7 @@
 main {
   display: flex;
 }
+
+main .main{
+  width: calc(100vw - 80px);
+}
