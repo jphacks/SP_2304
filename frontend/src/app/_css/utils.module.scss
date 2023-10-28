@@ -1,0 +1,21 @@
+/* 両端揃え */
+.spaceBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 横並び（基本形） */
+.sideBySide {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* 横並び（中央縦揃え） */
+.sideBySideCenter {
+  /* stylelint-disable-next-line property-no-unknown */
+  composes: sideBySide;
+  align-items: center;
+  text-align: left;
+}
