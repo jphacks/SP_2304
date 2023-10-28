@@ -1,6 +1,7 @@
 ### $ pip install -r requirements.txt ###
 fastapi
 httpx
+openai
 python-dotenv
 requests
 sqlalchemy[aiosqlite]
