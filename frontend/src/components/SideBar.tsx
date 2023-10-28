@@ -13,7 +13,9 @@ const SideBar = () => {
         anchor='left'
         open={true}
       >
-        <List>
+        <List
+          className={styles.iconList}
+        >
           <Link href='/'>
             <ListItem>
               <ListItemIcon>

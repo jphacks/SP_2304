@@ -1,0 +1,30 @@
+.appBar{
+  *{
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.TLWrapper{
+  padding: 1rem;
+
+  .cell{
+    border: 1px solid rgba($color: #000000, $alpha: 0.25);
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.2);
+
+    .date{
+      text-align: right;
+      font-size: 0.8rem;
+      color: rgba($color: #000000, $alpha: 0.5);
+    }
+
+    .content{
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}

@@ -16,14 +16,6 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-
-
-try {
-  // const app = initializeApp(config);
-} catch(error) {
-  console.log('error');
-}
-
 const db = getFirestore(app);
 
 const Push = async (point: number, content: string) => {
