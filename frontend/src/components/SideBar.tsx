@@ -5,7 +5,7 @@ import styles from './css/style.module.scss';
 
 const SideBar = () => {
   return (
-    <div className={styles['sideBar-wrapper']}>
+    <div className={styles['sideBarWrapper']}>
       <ul className=''>
         <li>
           <AddReaction />
