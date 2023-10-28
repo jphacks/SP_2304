@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import styles from '../@css/style.module.scss'
+import styles from '../_css/style.module.scss'
 import { Button, IconButton } from '@mui/material'
 import { Close } from '@mui/icons-material'
 

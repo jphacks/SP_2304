@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { IconButton, Button, TextField } from '@mui/material'
 import { Close } from '@mui/icons-material'
-import styles from '../@css/style.module.scss'
+import styles from '../_css/style.module.scss'
 
 type Props = {
   mode: string

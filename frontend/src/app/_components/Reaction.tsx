@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useContext } from 'react'
 import SideBar from '@/components/SideBar'
-import styles from '../@css/style.module.scss'
+import styles from '../_css/style.module.scss'
 import { IconButton, Button } from '@mui/material'
 // import { phaseContext } from '../page'
 

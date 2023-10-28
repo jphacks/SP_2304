@@ -1,12 +1,12 @@
 'use client'
 
 import { useState } from 'react'
-import styles from './@css/style.module.scss'
+import styles from './_css/style.module.scss'
 import SideBar from '@/components/SideBar'
 import { AppBar, List, ListItemIcon, ListItemButton, Divider } from '@mui/material'
 import { AutoAwesome, ConfirmationNumber } from '@mui/icons-material'
-import TLIndulgence from './@components/TLIndulgence'
-import TLTodo from './@components/TLTodo'
+import TLIndulgence from './_components/TLIndulgence'
+import TLTodo from './_components/TLTodo'
 
 export default function Home() {
   const [timelineId, setTimelineId] = useState(0);

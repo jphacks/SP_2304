@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import TLFetch from './TLFetch';
-import styles from '../@css/style.module.scss'
+import styles from '../_css/style.module.scss'
 import { TodoTypes, IndulgenceTypes } from './types/Types';
 import { v4 as uuidv4} from 'uuid'
 

@@ -1,12 +1,12 @@
 'use client'
 import { useState, useEffect, createContext } from 'react'
 import SideBar from '@/components/SideBar'
-import styles from './@css/style.module.scss'
+import styles from './_css/style.module.scss'
 import { IconButton, Button } from '@mui/material'
-import Reaction from './@components/Reaction'
-import Indulgence from './@components/Indulgence'
-import Content from './@components/Content'
-import Push from './@components/Push'
+import Reaction from './_components/Reaction'
+import Indulgence from './_components/Indulgence'
+import Content from './_components/Content'
+import Push from './_components/Push'
 
 export default function Home() {
   const [phase, setPhase] = useState<number>(0);
