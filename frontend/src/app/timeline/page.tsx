@@ -17,9 +17,9 @@ export default function Home() {
 
       <div className='main'>
         <AppBar
-          position='fixed'
+          position='sticky'
           sx={{
-            width: 'calc(100% - 80px)',
+            width: '100%',
             backgroundColor: 'white',
           }}
           className={styles.appBar}
