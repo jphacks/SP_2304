@@ -31,8 +31,6 @@ const Push = async (point: number, content: string, tags: string[]) => {
   await updateDoc(indulgenceRef, {
     indulgences: arrayUnion(data),
   });
-  // console.log(unionRes);
-  console.log("test");
 };
 
 export default Push;

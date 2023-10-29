@@ -10,12 +10,13 @@ import styles from "../_css/Reaction.module.scss";
 // import { phaseContext } from '../page'
 
 type Props = {
-  onPhaseChange: (phase: number, mode: string, count: number, content: string) => void;
+  onPhaseChange: (phase: number) => void;
+  setMode: (mode: string) => void;
 };
 
 const Reaction = (props: Props) => {
   // const {phase, setPhase} = useContext(phaseContext)
-  const { onPhaseChange } = props;
+  const { onPhaseChange, setMode } = props;
 
   return (
     <div>
@@ -31,8 +32,8 @@ const Reaction = (props: Props) => {
       </figure>
 
       <div className={styles.faceButtonWrapper}>
-        <FaceButton emoji="😤" mode="stress" onPhaseChange={onPhaseChange} title="" />
-        <FaceButton emoji="🥰" mode="benefaction" onPhaseChange={onPhaseChange} title="" />
+        <FaceButton emoji="😤" mode="stress" onPhaseChange={onPhaseChange} setMode={setMode} />
+        <FaceButton emoji="🥰" mode="benefaction" onPhaseChange={onPhaseChange} setMode={setMode} />
       </div>
       <h2 className={styles.context}>タップして記録開始!</h2>
     </div>

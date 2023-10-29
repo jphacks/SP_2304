@@ -6,10 +6,11 @@ import styles from "../_css/Indulgence.module.scss";
 
 type Props = {
   mode: string;
-  onPhaseChange: (phase: number, mode: string, count: number, content: string) => void;
+  onPhaseChange: (phase: number) => void;
+  setRootCount: (count: number) => void;
 };
 const Indulgence = (props: Props) => {
-  const { mode, onPhaseChange } = props;
+  const { mode, onPhaseChange, setRootCount } = props;
   const [count, setCount] = useState(0);
 
   const face: { [key: string]: string } = {
@@ -17,8 +18,9 @@ const Indulgence = (props: Props) => {
     stress: "😤",
   };
 
-  const phaseChange = (phase: number, mode: string, count: number) => {
-    onPhaseChange(phase, mode, count, "");
+  const phaseChange = (phase: number, count: number = 0) => {
+    onPhaseChange(phase);
+    setRootCount(count);
   };
 
   return (
@@ -26,7 +28,7 @@ const Indulgence = (props: Props) => {
       <IconButton
         className={styles.closeButton}
         onClick={() => {
-          phaseChange(0, "None", 0);
+          phaseChange(0);
         }}
       >
         <Close />
@@ -45,7 +47,7 @@ const Indulgence = (props: Props) => {
           <Button
             className={styles.text}
             onClick={() => {
-              phaseChange(2, mode, count);
+              phaseChange(2, count);
             }}
             variant="contained"
           >

@@ -3,7 +3,8 @@ import React, { useContext } from "react";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 
 import styles from "../_css/style.module.scss";
-import { PhaseContext } from "../page";
+
+import { PhaseContext } from "./Main";
 
 type Props = {
   setContent: (content: string) => void;

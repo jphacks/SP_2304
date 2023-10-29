@@ -9,26 +9,26 @@ import TagFetch from "./TagFetch";
 type Props = {
   count: number;
   mode: string;
-  onPhaseChange: (
-    phase: number,
-    mode: string,
-    count: number,
-    content: string,
-    tags: string[],
-  ) => void;
+  onPhaseChange: (phase: number) => void;
+  setRootContent: (content: string) => void;
+  setRootTags: (tags: string[]) => void;
 };
 
 const Content = (props: Props) => {
-  const { mode, count, onPhaseChange } = props;
-  const [subPhase, setSubPhase] = useState(0);
-  const [dbIndulgenceContent, setDBIndulgenceContent] = useState("");
-  const phaseChange = (phase: number, mode: string, count: number) => {
-    onPhaseChange(phase, mode, count, dbIndulgenceContent, tags);
+  const { mode, count, onPhaseChange, setRootTags, setRootContent } = props;
+  // const [subPhase, setSubPhase] = useState(0);
+  const [content, setContent] = useState("");
+  const phaseChange = (phase: number) => {
+    if(phase === 3){
+      setRootTags(tags);
+      setRootContent(content);
+    }
+    onPhaseChange(phase);
   };
   const [tags, setTags] = useState<string[]>([]);
 
   const handleSubPhase = async () => {
-    const tags_: any = await TagFetch(dbIndulgenceContent);
+    const tags_: any = await TagFetch(content);
     for (let key in tags_) {
       setTags((tags) => [...tags, tags_[key]]);
     }
@@ -44,7 +44,7 @@ const Content = (props: Props) => {
       <IconButton
         className={styles.closeButton}
         onClick={() => {
-          phaseChange(0, "None", 0);
+          phaseChange(0);
         }}
       >
         <Close />
@@ -61,7 +61,7 @@ const Content = (props: Props) => {
               label="概要"
               multiline
               onChange={(e) => {
-                setDBIndulgenceContent(e.target.value);
+                setContent(e.target.value);
               }}
             />
           </div>
@@ -83,7 +83,7 @@ const Content = (props: Props) => {
           </div>
 
           <Button
-            onClick={() => onPhaseChange(3, "None", count, dbIndulgenceContent, tags)}
+            onClick={() => phaseChange(3)}
             variant="contained"
           >
             記録する
