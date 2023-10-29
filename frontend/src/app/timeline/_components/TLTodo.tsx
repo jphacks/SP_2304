@@ -7,7 +7,7 @@ import TLFetch from "./TLFetch";
 import { TodoTypes } from "./types/Types";
 
 const TLTodo = () => {
-  const [dat, setData] = useState<TodoTypes[]>([]);
+  const [data, setData] = useState<TodoTypes[]>([]);
   const uuid = "template";
   useEffect(() => {
     const fetch = async () => {
