@@ -33,7 +33,7 @@ const Indulgence = (props: Props) => {
       </IconButton>
       <div className={styles.reactionWrapper}>
         <div className={styles.reactionButton}>
-          <p>連打しろ！！！</p>
+          <h2>連打しよう！！！</h2>
           <Button
             className={styles.iconButton}
             onClick={() => {
