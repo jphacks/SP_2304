@@ -1,18 +1,16 @@
-'use server'
-import React from 'react'
-import { v4 as uuidv4 } from 'uuid';
-import { initializeApp } from 'firebase/app'
-import { doc, updateDoc, getFirestore, arrayUnion } from 'firebase/firestore';
-import { getAnalytics } from 'firebase/analytics'
+"use server";
+import { initializeApp } from "firebase/app";
+import { doc, updateDoc, getFirestore, arrayUnion } from "firebase/firestore";
+import { v4 as uuidv4 } from "uuid";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDDMJeRLZobW7M1ZpXJ1aTnUHyu-yFd6rM",
+  appId: "1:154053445032:web:6bcab5a382ecf67fd3899d",
   authDomain: "ramenzaifu.firebaseapp.com",
+  measurementId: "G-D13XN5V4KL",
+  messagingSenderId: "154053445032",
   projectId: "ramenzaifu",
   storageBucket: "ramenzaifu.appspot.com",
-  messagingSenderId: "154053445032",
-  appId: "1:154053445032:web:6bcab5a382ecf67fd3899d",
-  measurementId: "G-D13XN5V4KL"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -27,14 +25,14 @@ const Push = async (point: number, content: string) => {
     point: point,
     tags: [],
     time: time,
-  }
+  };
 
-  const indulgenceRef = doc(db, 'user_data', 'template');
+  const indulgenceRef = doc(db, "user_data", "template");
   await updateDoc(indulgenceRef, {
     indulgences: arrayUnion(data),
   });
   // console.log(unionRes);
-  console.log('test');
-}
+  console.log("test");
+};
 
-export default Push
+export default Push;

@@ -1,46 +1,28 @@
-import React from 'react'
-import { useState, useContext } from 'react'
-import SideBar from '@/components/SideBar'
-import styles from '../_css/style.module.scss'
-import { IconButton, Button } from '@mui/material'
+import React from "react";
+
+import FaceButton from "../_components/FaceButton";
+import styles from "../_css/Reaction.module.scss";
+// import styles from '../_css/style.module.scss'
 // import { phaseContext } from '../page'
 
 type Props = {
-  onPhaseChange: (phase: number, mode: string, count: number, content: string) => void
-}
+  onPhaseChange: (phase: number, mode: string, count: number, content: string) => void;
+};
 
 const Reaction = (props: Props) => {
   // const {phase, setPhase} = useContext(phaseContext)
-  const {onPhaseChange} = props;
-
-  const facePressed = (phase: number, mode: string, count: number) => {
-    onPhaseChange(phase, mode, count, '');
-  }
+  const { onPhaseChange } = props;
 
   return (
-    <div className={styles.indulgenceWrapper}>
+    <div>
       <h1 className={styles.appTitle}>タイトル</h1>
-
       <div className={styles.faceButtonWrapper}>
-        <div className={styles.faceButton}>
-          <p>ストレス</p>
-          <Button
-            onClick={() => facePressed(1, 'stress', 0)}
-          >
-            😤
-          </Button>
-        </div>
-        <div className={styles.faceButton}>
-          <p>善行</p>
-          <Button
-            onClick={() => facePressed(2, 'benefaction', 0)}
-          >🥰</Button>
-        </div>
+        <FaceButton emoji="😤" mode="stress" onPhaseChange={onPhaseChange} title="ストレス" />
+        <FaceButton emoji="🥰" mode="benefaction" onPhaseChange={onPhaseChange} title="善行" />
       </div>
-
-      <p>タップして記録開始</p>
+      <p className={styles.context}>タップして記録開始</p>
     </div>
-  )
-}
+  );
+};
 
-export default Reaction
+export default Reaction;
