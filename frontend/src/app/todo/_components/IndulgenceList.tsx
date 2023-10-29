@@ -1,8 +1,19 @@
-import React, { useState, useEffect } from 'react'
-import { List, ListItem, ListItemIcon, ListItemText, ListItemButton, Checkbox } from '@mui/material'
-import { IndulgenceTypes } from '@/types/Types';
-import IndulgenceListFetch from './IndulgenceListFetch';
-import { v4 as uuidv4 } from 'uuid';
+import {
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  ListItemButton,
+  Checkbox,
+} from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
+
+import { IndulgenceTypes } from "@/types/Types";
+
+import styles from "../_css/IndulgenceList.module.scss";
+
+import IndulgenceListFetch from "./IndulgenceListFetch";
 
 const IndulgenceList = () => {
   const [data, setData] = useState<IndulgenceTypes[]>([]);
@@ -10,35 +21,26 @@ const IndulgenceList = () => {
   useEffect(() => {
     const fetchIndulgences = async () => {
       const data_ = await IndulgenceListFetch(uuid);
-      for (let datum of data_){
+      for (let datum of data_) {
         setData((data) => [...data, datum]);
       }
-    }
+    };
 
     fetchIndulgences();
-  }, [])
+  }, []);
 
-  const handleToggle = (id: string) => {
-
-  }
-
+  const handleToggle = (id: string) => {};
 
   return (
-    <List>
+    <List className={styles.list}>
       {data!.map((datum) => {
         const labelId = `indulgenceListLabel-${datum.id}`;
         return (
           <React.Fragment key={uuidv4()}>
             <ListItem>
-              <ListItemButton
-                role={undefined}
-                onClick={() => handleToggle(datum.id)}
-              >
+              <ListItemButton onClick={() => handleToggle(datum.id)} role={undefined}>
                 <ListItemIcon>
-                  <Checkbox
-                    edge="start"
-
-                  />
+                  <Checkbox edge="start" />
                 </ListItemIcon>
 
                 <ListItemText id={labelId} primary={datum.content} />
@@ -46,9 +48,9 @@ const IndulgenceList = () => {
             </ListItem>
           </React.Fragment>
         );
-        })}
+      })}
     </List>
-  )
-}
+  );
+};
 
-export default IndulgenceList
+export default IndulgenceList;

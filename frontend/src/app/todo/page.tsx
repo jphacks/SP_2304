@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@mui/material";
 import { useState, createContext } from "react";
 
 import styles from "@/app/_css/utils.module.scss";
@@ -6,7 +7,6 @@ import styles2 from "@/app/todo/_css/style.module.scss";
 import SideBar from "@/components/SideBar";
 
 import Excuse from "./_components/Excuse";
-import { Button } from "@mui/material";
 import IndulgenceList from "./_components/IndulgenceList";
 import TodoForm from "./_components/TodoForm";
 
@@ -31,12 +31,12 @@ export default function Home() {
         <PhaseContext.Provider value={{ phase, setPhase }}>
           <TodoForm setContent={setContent} />
           {phase != 0 && <Excuse content={content} />}
-          {(phase != 0 && content != "") &&
+          {phase != 0 && content != "" && (
             <>
-              <Button>納得した！</Button>
+              <Button variant="contained">納得した！</Button>
               <IndulgenceList />
             </>
-          }
+          )}
         </PhaseContext.Provider>
       </div>
     </div>
