@@ -33,7 +33,7 @@ const SideBar = (props: Props) => {
             </ListItem>
           </Link>
           <Link href="/">
-            <ListItem>
+            <ListItem className={sideBarId == -1 ? styles.onState : styles.offState}>
               <ListItemIcon>
                 <Person className={styles.itemIcon} />
               </ListItemIcon>
