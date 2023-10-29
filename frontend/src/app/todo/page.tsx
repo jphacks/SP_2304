@@ -1,11 +1,13 @@
 "use client";
 import { useState, createContext } from "react";
 
+import styles from "@/app/_css/utils.module.scss";
+import styles2 from "@/app/todo/_css/style.module.scss";
 import SideBar from "@/components/SideBar";
 
 import TodoForm from "./_components/TodoForm";
-import styles from "./_css/style.module.scss";
 import Excuse from "./_components/Excuse";
+
 
 type ContextType = {
   phase: number;
@@ -21,15 +23,15 @@ export default function Home() {
   // console.log(content);
 
   return (
-    <main>
+    <div className={styles.sideBySide}>
       <SideBar />
 
-      <PhaseContext.Provider value={{ phase, setPhase }}>
-        <div className={styles.main}>
+      <div className={styles2.todoFormWrapper}>
+        <PhaseContext.Provider value={{ phase, setPhase }}>
           <TodoForm setContent={setContent} />
           {phase != 0 && <Excuse content={content} />}
-        </div>
-      </PhaseContext.Provider>
-    </main>
+        </PhaseContext.Provider>
+      </div>
+    </div>
   );
 }
