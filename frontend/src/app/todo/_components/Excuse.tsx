@@ -1,7 +1,7 @@
 import { TextField } from "@mui/material";
 import React, { useEffect, useState, useContext } from "react";
 
-import { ExcuseContext } from "../page";
+import { ExcuseContext } from "./Main";
 
 type Props = {
   content: string;
