@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <div className={styles.sideBySide}>
-      <SideBar />
+      <SideBar sideBarId={1} />
       <div className={styles2.contentWrapper}>
         <AppBar
           position="sticky"
@@ -35,6 +35,7 @@ export default function Home() {
             }}
           >
             <IconButton
+              className={timelineId == 0 ? styles2.onState : styles2.offState}
               onClick={() => {
                 setTimelineId(0);
               }}
@@ -47,6 +48,7 @@ export default function Home() {
             </IconButton>
             <Divider flexItem orientation="vertical" />
             <IconButton
+              className={timelineId == 1 ? styles2.onState : styles2.offState}
               onClick={() => {
                 setTimelineId(1);
               }}

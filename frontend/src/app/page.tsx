@@ -35,7 +35,7 @@ export default function Home() {
 
   return (
     <main className={styles.sideBySide}>
-      {phase == 0 && <SideBar />}
+      {phase == 0 && <SideBar sideBarId={0} />}
       <div className={styles.putCenter}>
         {phase == 0 && <Reaction onPhaseChange={handlePhaseChange} />}
         {phase == 1 && <Indulgence mode={mode} onPhaseChange={handlePhaseChange} />}
