@@ -29,7 +29,7 @@ const TLIndulgence = () => {
           <div className={styles.cell}>
             <p className={styles.date}>{datum.time}</p>
             <p className={styles.content}>{datum.content}</p>
-            <p className={styles.tags}>{datum.tags}</p>
+            <p className={styles.tags}>{datum.tags.join('/')}</p>
           </div>
         </React.Fragment>
       ))}

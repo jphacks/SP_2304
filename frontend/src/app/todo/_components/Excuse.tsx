@@ -1,6 +1,7 @@
 
 import { TextField } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
+import { ExcuseContext } from '../page'
 
 type Props = {
   content: string
@@ -8,7 +9,7 @@ type Props = {
 
 const Excuse = (props: Props) => {
   const {content} = props;
-
+  const {excuse, setExcuse} = useContext(ExcuseContext);
   const data = {
     sentence: content
   }
@@ -28,14 +29,14 @@ const Excuse = (props: Props) => {
       })
 
       const data_ = await res.json();
-      const excuse = data_.content;
-      setGPTExcuse(excuse);
+      const excuse_ = data_.content;
+      setGPTExcuse(excuse_);
+      setExcuse(excuse_);
     }
 
     fetchExcuse();
 
   }, [])
-
 
   return (
     <div>

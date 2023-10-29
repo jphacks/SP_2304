@@ -19,6 +19,7 @@ export default function Home() {
     mode_: string,
     count_: number,
     indulgenceContent: string,
+    tags: string[],
   ) => {
     setPhase(phase_);
     setMode(mode_);
@@ -27,7 +28,7 @@ export default function Home() {
 
     if (phase_ == 3) {
       const data = {};
-      Push(count_, indulgenceContent);
+      Push(count_, indulgenceContent, tags);
 
       setPhase(0);
     }
