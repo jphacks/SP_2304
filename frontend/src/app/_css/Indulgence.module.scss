@@ -1,23 +1,23 @@
-.closeButton{
-  composes: closeButton from './utils.module.scss'
+.closeButton {
+  composes: closeButton from "./utils.module.scss";
 }
 
-.reactionWrapper{
+.reactionWrapper {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
-  .reactionButton{
+  .reactionButton {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    .iconButton{
+    .iconButton {
       font-size: 14rem;
     }
 
-    .text{
+    .text {
       font-size: 1rem;
     }
   }

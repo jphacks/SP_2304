@@ -1,24 +1,24 @@
-.closeButton{
-  composes: closeButton from './utils.module.scss';
+.closeButton {
+  composes: closeButton from "./utils.module.scss";
 }
 
-.contentWrapper{
+.contentWrapper {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
 
-  .tags{
+  .tags {
     border: 1px solid rgba($color: #000000, $alpha: 0.25);
     border-radius: 5%;
     padding: 1rem;
     width: 80%;
     margin: 1rem 0;
-    .tagsText{
+    .tagsText {
       display: flex;
       flex-direction: column;
 
-      *{
+      * {
         margin: 0.1rem 0;
         // width: 80%;
       }
@@ -26,6 +26,6 @@
   }
 }
 
-.contentForm{
-  composes: putCenter from './utils.module.scss';
+.contentForm {
+  composes: putCenter from "./utils.module.scss";
 }

@@ -6,18 +6,18 @@
 //   width: calc(100% - 80px);
 // }
 
-.todoFormWrapper{
-  composes: putCenter from '@/app/_css/utils.module.scss'; 
+.todoFormWrapper {
+  composes: putCenter from "@/app/_css/utils.module.scss";
   width: calc(100vw - 4rem);
 
-  .formContent{
+  .formContent {
     margin-bottom: 1rem;
   }
-  .formButton{
+  .formButton {
     display: inline-block;
   }
 
-  button{
+  button {
     margin: 1rem, 0;
   }
 }

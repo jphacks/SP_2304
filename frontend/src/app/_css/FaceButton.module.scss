@@ -1,15 +1,12 @@
 .faceButton {
-  composes:sideBySide from './utils.module.scss';
+  composes: sideBySide from "./utils.module.scss";
 
-  p{
+  p {
     text-align: center;
   }
 
-  Button{
-  font-size: 5rem;
-  // border-radius: 50%;
+  Button {
+    font-size: 5rem;
+    // border-radius: 50%;
   }
 }
-
-
-

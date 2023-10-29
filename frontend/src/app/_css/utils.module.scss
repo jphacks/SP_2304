@@ -1,10 +1,9 @@
 /* 閉じるボタン */
-.closeButton{
+.closeButton {
   position: absolute;
   left: 1rem;
   top: 1rem;
 }
-
 
 /* 両端揃え */
 .spaceBetween {
@@ -26,7 +25,7 @@
 }
 
 /* 画面中央に配置 */
-.putCenter{
+.putCenter {
   display: flex;
   flex-direction: column;
   align-items: center;
