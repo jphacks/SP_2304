@@ -1,7 +1,7 @@
 # ラー麺罪符
 
 [![IMAGE ALT TEXT HERE](https://jphacks.com/wp-content/uploads/2023/07/JPHACKS2023_ogp.png)](https://www.youtube.com/watch?v=yYRQEdfGjEg)
-[![thumbnail](./product_info/thumbnail.png)]
+![thumbnail](./product_info/thumbnail.png)
 ## 製品概要
 ### 背景(製品開発のきっかけ、課題等）
 　何かやりたいことがあるけど、罪悪感を感じてしまう。やりたいことをできなかったり、やったとしても罪悪感のせいで良い体験を得られないことは少なくないと思います。
@@ -47,8 +47,7 @@
 
 ### 独自技術
 #### ハッカソンで開発した独自機能・技術
-* 独自で開発したものの内容をこちらに記載してください
-* 特に力を入れた部分をファイルリンク、またはcommit_idを記載してください。
+* このサービスは1から作成したため、製品の全ての機能・技術をハッカソンで開発しました。
 
 #### 製品に取り入れた研究内容（データ・ソフトウェアなど）（※アカデミック部門の場合のみ提出必須）
 * 
