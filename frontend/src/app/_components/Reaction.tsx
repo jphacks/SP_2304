@@ -19,7 +19,7 @@ const Reaction = (props: Props) => {
 
   return (
     <div>
-      <figure className>
+      <figure>
         <Image
           alt="title"
           layout="responsive"
