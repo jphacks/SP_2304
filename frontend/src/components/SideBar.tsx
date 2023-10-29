@@ -6,13 +6,19 @@ import React from "react";
 
 import styles from "./css/style.module.scss";
 
-const SideBar = () => {
+type Props = {
+  sideBarId: number;
+};
+
+const SideBar = (props: Props) => {
+  const { sideBarId } = props;
+
   return (
     <div className={styles.sideBarWrapper}>
       <Drawer anchor="left" open={true} variant="persistent">
         <List className={styles.iconList}>
           <Link href="/">
-            <ListItem>
+            <ListItem className={sideBarId == 0 ? styles.onState : styles.offState}>
               <ListItemIcon>
                 <AddReaction className={styles.itemIcon} />
               </ListItemIcon>
@@ -20,7 +26,7 @@ const SideBar = () => {
           </Link>
 
           <Link href="/timeline">
-            <ListItem>
+            <ListItem className={sideBarId == 1 ? styles.onState : styles.offState}>
               <ListItemIcon>
                 <ImportContacts className={styles.itemIcon} />
               </ListItemIcon>
@@ -34,7 +40,7 @@ const SideBar = () => {
             </ListItem>
           </Link>
           <Link href="/todo">
-            <ListItem>
+            <ListItem className={sideBarId == 2 ? styles.onState : styles.offState}>
               <ListItemIcon>
                 <RamenDining className={styles.itemIcon} />
               </ListItemIcon>

@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <div className={styles.sideBySide}>
-      <SideBar />
+      <SideBar sideBarId={1} />
       <div className={styles2.contentWrapper}>
         <AppBar
           position="sticky"

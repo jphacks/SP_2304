@@ -5,9 +5,8 @@ import styles from "@/app/_css/utils.module.scss";
 import styles2 from "@/app/todo/_css/style.module.scss";
 import SideBar from "@/components/SideBar";
 
-import TodoForm from "./_components/TodoForm";
 import Excuse from "./_components/Excuse";
-
+import TodoForm from "./_components/TodoForm";
 
 type ContextType = {
   phase: number;
@@ -24,7 +23,7 @@ export default function Home() {
 
   return (
     <div className={styles.sideBySide}>
-      <SideBar />
+      <SideBar sideBarId={2} />
 
       <div className={styles2.todoFormWrapper}>
         <PhaseContext.Provider value={{ phase, setPhase }}>
