@@ -7,6 +7,8 @@ import SideBar from "@/components/SideBar";
 
 import TodoForm from "./_components/TodoForm";
 import Excuse from "./_components/Excuse";
+import { Button } from "@mui/material";
+import IndulgenceList from "./_components/IndulgenceList";
 
 
 type ContextType = {
@@ -30,6 +32,12 @@ export default function Home() {
         <PhaseContext.Provider value={{ phase, setPhase }}>
           <TodoForm setContent={setContent} />
           {phase != 0 && <Excuse content={content} />}
+          {(phase != 0 && content != "") &&
+            <>
+              <Button>納得した！</Button>
+              <IndulgenceList />
+            </>
+          }
         </PhaseContext.Provider>
       </div>
     </div>

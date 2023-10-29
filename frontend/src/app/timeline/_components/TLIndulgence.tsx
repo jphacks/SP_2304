@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import styles from "../_css/style.module.scss";
 
 import TLFetch from "./TLFetch";
-import { IndulgenceTypes } from "./types/Types";
+import { IndulgenceTypes } from "../../../types/Types";
 
 const TLIndulgence = () => {
   const [data, setData] = useState<IndulgenceTypes[]>([]);

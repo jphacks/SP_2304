@@ -4,30 +4,28 @@ import { initializeApp } from "firebase/app";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 import firebaseConfig from "@/components/FirebaseConfig";
-
-import { TodoTypes, IndulgenceTypes } from "../../../types/Types";
+import { TodoTypes, IndulgenceTypes } from "@/types/Types";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const TLFetch = async (uuid: string, dataType: string) => {
+const IndulgenceListFetch = async (uuid: string) => {
   const docRef = doc(db, "user_data", uuid);
   const docSnap = await getDoc(docRef);
 
-  if (docSnap.exists()) {
-    // console.log(docSnap.data().todos[0]['time'].toDate());
+  if (docSnap.exists()){
+    console.log(docSnap);
   } else {
-    console.log(dataType + " with uuid of " + uuid + " does not exist.");
+    console.log('Indulgences' + " with uuid of " + uuid + " does not exist.");
     return null;
   }
 
-  const data = docSnap.data()[dataType].map((datum: TodoTypes | IndulgenceTypes) => {
+  const data = docSnap.data().indulgences.map((datum: IndulgenceTypes) => {
     datum.time = datum.time.toDate().toLocaleDateString();
     return datum;
   });
-  // console.log(data);
 
   return data;
-};
+}
 
-export default TLFetch;
+export default IndulgenceListFetch
