@@ -15,55 +15,53 @@ export default function Home() {
   const [timelineId, setTimelineId] = useState(0);
 
   return (
-    <>
-      <div className={styles.sideBySide}>
-        <SideBar />
-        <div className={styles2.contentWrapper}>
-          <AppBar
-            position="sticky"
+    <div className={styles.sideBySide}>
+      <SideBar />
+      <div className={styles2.contentWrapper}>
+        <AppBar
+          position="sticky"
+          sx={{
+            alignItems: "center",
+            backgroundColor: "white",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <Toolbar
+            className={styles2.appBar}
             sx={{
-              alignItems: "center",
-              backgroundColor: "white",
-              display: "flex",
-              justifyContent: "center",
+              padding: "0",
+              width: "100%",
             }}
           >
-            <Toolbar
-              className={styles2.appBar}
+            <IconButton
+              onClick={() => {
+                setTimelineId(0);
+              }}
+              size="large"
               sx={{
-                padding: "0",
-                width: "100%",
+                width: "50%",
               }}
             >
-              <IconButton
-                onClick={() => {
-                  setTimelineId(0);
-                }}
-                size="large"
-                sx={{
-                  width: "50%",
-                }}
-              >
-                <AutoAwesome />
-              </IconButton>
-              <Divider flexItem orientation="vertical" />
-              <IconButton
-                onClick={() => {
-                  setTimelineId(1);
-                }}
-                size="large"
-                sx={{
-                  width: "50%",
-                }}
-              >
-                <ConfirmationNumber />
-              </IconButton>
-            </Toolbar>
-          </AppBar>
-          {timelineId == 0 && <TLTodo />}
-          {timelineId == 1 && <TLIndulgence />}
-        </div>
+              <AutoAwesome />
+            </IconButton>
+            <Divider flexItem orientation="vertical" />
+            <IconButton
+              onClick={() => {
+                setTimelineId(1);
+              }}
+              size="large"
+              sx={{
+                width: "50%",
+              }}
+            >
+              <ConfirmationNumber />
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+        {timelineId == 0 && <TLTodo />}
+        {timelineId == 1 && <TLIndulgence />}
       </div>
-    </>
+    </div>
   );
 }
