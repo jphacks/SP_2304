@@ -10,8 +10,8 @@ type Props = {
   count: number;
   mode: string;
   onPhaseChange: (phase: number) => void;
-  setRootTags: (tags: string[]) => void;
   setRootContent: (content: string) => void;
+  setRootTags: (tags: string[]) => void;
 };
 
 const Content = (props: Props) => {
