@@ -7,8 +7,8 @@
 // }
 
 .todoFormWrapper{
-  composes: putCenter from '@/app/_css/utils.module.scss';
-  width: calc(100vw - 5rem);
+  composes: putCenter from '@/app/_css/utils.module.scss'; 
+  width: calc(100vw - 4rem);
 
   .formContent{
     margin-bottom: 1rem;

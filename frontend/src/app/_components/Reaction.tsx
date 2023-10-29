@@ -1,7 +1,11 @@
+import Image from "next/legacy/image";
 import React from "react";
+
+import title from "@/app/image/ラー麺免罪符.png";
 
 import FaceButton from "../_components/FaceButton";
 import styles from "../_css/Reaction.module.scss";
+
 // import styles from '../_css/style.module.scss'
 // import { phaseContext } from '../page'
 
@@ -15,12 +19,22 @@ const Reaction = (props: Props) => {
 
   return (
     <div>
-      <h1 className={styles.appTitle}>タイトル</h1>
+      <figure>
+        <Image
+          alt="title"
+          layout="responsive"
+          placeholder="blur"
+          priority
+          sizes={"100vw"}
+          src={title}
+        />
+      </figure>
+
       <div className={styles.faceButtonWrapper}>
-        <FaceButton emoji="😤" mode="stress" onPhaseChange={onPhaseChange} title="ストレス" />
-        <FaceButton emoji="🥰" mode="benefaction" onPhaseChange={onPhaseChange} title="善行" />
+        <FaceButton emoji="😤" mode="stress" onPhaseChange={onPhaseChange} title="" />
+        <FaceButton emoji="🥰" mode="benefaction" onPhaseChange={onPhaseChange} title="" />
       </div>
-      <p className={styles.context}>タップして記録開始</p>
+      <h2 className={styles.context}>タップして記録開始!</h2>
     </div>
   );
 };
