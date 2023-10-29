@@ -35,3 +35,11 @@
     }
   }
 }
+
+.onState{
+  color:var(--accent);
+}
+
+.offState{
+  color:rgba($color: #000000, $alpha: 0.4);
+}
