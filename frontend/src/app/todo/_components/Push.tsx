@@ -16,20 +16,20 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const Push = async (point: number, content: string, tags: string[]) => {
+const Push = async (content: string, excuse: string, indulgences: string[] = []) => {
   const time = new Date();
   const data = {
     content: content,
+    excuse: excuse,
     id: uuidv4(),
-    is_used: false,
-    point: point,
-    tags: tags,
+    indulgences: indulgences,
+    is_done: true,
     time: time,
   };
 
   const indulgenceRef = doc(db, "user_data", "template");
   await updateDoc(indulgenceRef, {
-    indulgences: arrayUnion(data),
+    todos: arrayUnion(data),
   });
   // console.log(unionRes);
   console.log("test");

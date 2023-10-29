@@ -42,9 +42,13 @@ const IndulgenceList = () => {
                 <ListItemIcon>
                   <Checkbox edge="start" />
                 </ListItemIcon>
-
-                <ListItemText id={labelId} primary={datum.content} />
               </ListItemButton>
+
+              <ListItemText
+                id={labelId}
+                primary={datum.tags.join('/')}
+                secondary={datum.time}
+                />
             </ListItem>
           </React.Fragment>
         );

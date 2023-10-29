@@ -5,15 +5,20 @@ import { useState, createContext } from "react";
 import styles from "@/app/_css/utils.module.scss";
 import styles2 from "@/app/todo/_css/style.module.scss";
 import SideBar from "@/components/SideBar";
-
+import Push from "./_components/Push";
 import Excuse from "./_components/Excuse";
 import IndulgenceList from "./_components/IndulgenceList";
 import TodoForm from "./_components/TodoForm";
+import Indulgence from "../_components/Indulgence";
 
 type ContextType = {
   phase: number;
   setPhase: (value: number) => void;
 };
+
+type excuseContextType = {
+  
+}
 
 export const PhaseContext = createContext<ContextType>({} as ContextType);
 
@@ -33,7 +38,17 @@ export default function Home() {
           {phase != 0 && <Excuse content={content} />}
           {phase != 0 && content != "" && (
             <>
-              <Button variant="contained">納得した！</Button>
+              <Button
+                variant="contained"
+                onClick={() => {
+                  setPhase(0);
+                  setContent('');
+                  Push(content, content)
+                }}
+                className={styles.button}
+              >
+                納得した！
+              </Button>
               <IndulgenceList />
             </>
           )}
