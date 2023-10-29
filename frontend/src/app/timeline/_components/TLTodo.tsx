@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import styles from "../_css/style.module.scss";
 
 import TLFetch from "./TLFetch";
-import { TodoTypes } from "./types/Types";
+import { TodoTypes } from "../../../types/Types";
 
 const TLTodo = () => {
   const [data, setData] = useState<TodoTypes[]>([]);

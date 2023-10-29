@@ -41,9 +41,11 @@ const Excuse = (props: Props) => {
     <div>
       <TextField
         multiline
-        disabled
         defaultValue={gptExcuse}
         rows={4}
+        InputProps={{
+          readOnly: true,
+        }}
       />
     </div>
   )
