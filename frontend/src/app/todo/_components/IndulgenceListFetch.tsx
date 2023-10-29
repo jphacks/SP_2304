@@ -14,7 +14,7 @@ const IndulgenceListFetch = async (uuid: string) => {
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()){
-    console.log(docSnap);
+    // console.log(docSnap);
   } else {
     console.log('Indulgences' + " with uuid of " + uuid + " does not exist.");
     return null;

@@ -17,14 +17,17 @@ type ContextType = {
 };
 
 type excuseContextType = {
-  
+  excuse: string;
+  setExcuse: (str: string) => void;
 }
 
 export const PhaseContext = createContext<ContextType>({} as ContextType);
+export const ExcuseContext = createContext<excuseContextType>({} as excuseContextType);
 
 export default function Home() {
   const [content, setContent] = useState("");
   const [phase, setPhase] = useState(0);
+  const [excuse, setExcuse] = useState("");
 
   // console.log(content);
 
@@ -35,7 +38,11 @@ export default function Home() {
       <div className={styles2.todoFormWrapper}>
         <PhaseContext.Provider value={{ phase, setPhase }}>
           <TodoForm setContent={setContent} />
-          {phase != 0 && <Excuse content={content} />}
+          {phase != 0 &&
+          <ExcuseContext.Provider value={{ excuse, setExcuse }}>
+            <Excuse content={content} />
+          </ExcuseContext.Provider>
+          }
           {phase != 0 && content != "" && (
             <>
               <Button
@@ -43,7 +50,7 @@ export default function Home() {
                 onClick={() => {
                   setPhase(0);
                   setContent('');
-                  Push(content, content)
+                  if(excuse !== "") Push(content, excuse)
                 }}
                 className={styles.button}
               >
