@@ -4,14 +4,12 @@ import React, { useEffect, useState } from 'react'
 
 const Excuse = () => {
   const [gptExcuse, setGPTExcuse] = useState('');
-  useEffect(
-    () => {
-    setGPTExcuse(fetch('', ))
-
-    return () => {
-      second
+  useEffect(() => {
+    const fetchExcuse = async () => {
+      const data = fetch('http://localhost:8000/api/openai/excuse', {})
     }
-  }, [third])
+  }, [])
+
 
 
   return (
