@@ -1,7 +1,7 @@
 import Image from "next/legacy/image";
 import React from "react";
 
-import title from "@/app/image/ラー麺免罪符.png";
+import title from "@/app/image/ラー麺罪符.png";
 
 import FaceButton from "../_components/FaceButton";
 import styles from "../_css/Reaction.module.scss";
