@@ -6,37 +6,43 @@ import React from "react";
 
 import styles from "./css/style.module.scss";
 
-const SideBar = () => {
+type Props = {
+  sideBarId: number;
+};
+
+const SideBar = (props: Props) => {
+  const { sideBarId } = props;
+
   return (
     <div className={styles.sideBarWrapper}>
       <Drawer anchor="left" open={true} variant="persistent">
         <List className={styles.iconList}>
           <Link href="/">
-            <ListItem>
+            <ListItem className={sideBarId == 0 ? styles.onState : styles.offState}>
               <ListItemIcon>
-                <AddReaction />
+                <AddReaction className={styles.itemIcon} />
               </ListItemIcon>
             </ListItem>
           </Link>
 
           <Link href="/timeline">
-            <ListItem>
+            <ListItem className={sideBarId == 1 ? styles.onState : styles.offState}>
               <ListItemIcon>
-                <ImportContacts />
+                <ImportContacts className={styles.itemIcon} />
               </ListItemIcon>
             </ListItem>
           </Link>
           <Link href="/">
             <ListItem>
               <ListItemIcon>
-                <Person />
+                <Person className={styles.itemIcon} />
               </ListItemIcon>
             </ListItem>
           </Link>
           <Link href="/todo">
-            <ListItem>
+            <ListItem className={sideBarId == 2 ? styles.onState : styles.offState}>
               <ListItemIcon>
-                <RamenDining />
+                <RamenDining className={styles.itemIcon} />
               </ListItemIcon>
             </ListItem>
           </Link>

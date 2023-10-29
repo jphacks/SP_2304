@@ -19,3 +19,15 @@ $sideBarWidth: 5rem;
     }
   }
 }
+
+.itemIcon{
+  color: var(--gray-50);
+}
+
+.onState{
+  background-color:var(--gray-10);
+}
+
+.offState{
+  color:var(--white);
+}
