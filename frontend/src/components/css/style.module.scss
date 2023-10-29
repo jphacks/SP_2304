@@ -1,4 +1,4 @@
-$sideBarWidth: 5rem;
+$sideBarWidth: 4rem;
 
 .sideBarWrapper{
   // position: sticky;
@@ -22,12 +22,16 @@ $sideBarWidth: 5rem;
 
 .itemIcon{
   color: var(--gray-50);
+  height: 2rem;
+  width: 2rem;
 }
 
 .onState{
+  height: 5rem;
   background-color:var(--gray-10);
 }
 
 .offState{
+  height: 5rem;
   color:var(--white);
 }
