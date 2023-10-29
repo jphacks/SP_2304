@@ -14,7 +14,7 @@ const SideBar = () => {
           <Link href="/">
             <ListItem>
               <ListItemIcon>
-                <AddReaction />
+                <AddReaction className={styles.itemIcon} />
               </ListItemIcon>
             </ListItem>
           </Link>
@@ -22,21 +22,21 @@ const SideBar = () => {
           <Link href="/timeline">
             <ListItem>
               <ListItemIcon>
-                <ImportContacts />
+                <ImportContacts className={styles.itemIcon} />
               </ListItemIcon>
             </ListItem>
           </Link>
           <Link href="/">
             <ListItem>
               <ListItemIcon>
-                <Person />
+                <Person className={styles.itemIcon} />
               </ListItemIcon>
             </ListItem>
           </Link>
           <Link href="/todo">
             <ListItem>
               <ListItemIcon>
-                <RamenDining />
+                <RamenDining className={styles.itemIcon} />
               </ListItemIcon>
             </ListItem>
           </Link>
