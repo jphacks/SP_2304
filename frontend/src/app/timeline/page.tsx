@@ -5,6 +5,7 @@ import { AppBar, Toolbar, Divider, IconButton } from "@mui/material";
 import { useState } from "react";
 
 import styles from "@/app/_css/utils.module.scss";
+import styles2 from "@/app/timeline/_css/style.module.scss";
 import SideBar from "@/components/SideBar";
 
 import TLIndulgence from "./_components/TLIndulgence";
@@ -17,19 +18,31 @@ export default function Home() {
     <>
       <div className={styles.sideBySide}>
         <SideBar />
-        <div>
+        <div className={styles2.contentWrapper}>
           <AppBar
             position="sticky"
             sx={{
+              alignItems: "center",
               backgroundColor: "white",
+              display: "flex",
+              justifyContent: "center",
             }}
           >
-            <Toolbar>
+            <Toolbar
+              className={styles2.appBar}
+              sx={{
+                padding: "0",
+                width: "100%",
+              }}
+            >
               <IconButton
                 onClick={() => {
                   setTimelineId(0);
                 }}
                 size="large"
+                sx={{
+                  width: "50%",
+                }}
               >
                 <AutoAwesome />
               </IconButton>
@@ -39,17 +52,17 @@ export default function Home() {
                   setTimelineId(1);
                 }}
                 size="large"
+                sx={{
+                  width: "50%",
+                }}
               >
                 <ConfirmationNumber />
               </IconButton>
             </Toolbar>
           </AppBar>
+          {timelineId == 0 && <TLTodo />}
+          {timelineId == 1 && <TLIndulgence />}
         </div>
-      </div>
-
-      <div>
-        {timelineId == 0 && <TLTodo />}
-        {timelineId == 1 && <TLIndulgence />}
       </div>
     </>
   );
