@@ -12,6 +12,6 @@
 }
 
 .appTitle{
-  composes: context;
-  width: 100%;
+  position: fixed;
+  top:0;
 }
