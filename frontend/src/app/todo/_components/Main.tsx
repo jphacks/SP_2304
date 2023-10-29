@@ -3,8 +3,6 @@ import { Button } from "@mui/material";
 import { useState, createContext } from "react";
 
 import styles from "@/app/_css/utils.module.scss";
-import styles2 from "@/app/todo/_css/style.module.scss";
-import SideBar from "@/components/SideBar";
 
 import Excuse from "./Excuse";
 import IndulgenceList from "./IndulgenceList";

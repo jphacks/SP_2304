@@ -6,19 +6,20 @@ import styles from "../_css/FaceButton.module.scss";
 type FaceButtonProps = {
   emoji: string;
   mode: string;
-  onPhaseChange: (phase: number, mode: string, count: number, content: string) => void;
-  title: string;
+  onPhaseChange: (phase: number) => void;
+  setMode: (mode: string) => void
 };
 
-const FaceButton: FC<FaceButtonProps> = ({ title, emoji, mode, onPhaseChange }) => {
+const FaceButton: FC<FaceButtonProps> = ({ emoji, mode, onPhaseChange, setMode }) => {
   const facePressed = (mode_: string) => {
-    onPhaseChange(1, mode_, 0, "");
+    onPhaseChange(1);
+    setMode(mode);
   };
 
   return (
     <div className={styles.faceButton}>
       <div>
-        <p>{title}</p>
+        {/* <p>{title}</p> */}
         <Button onClick={() => facePressed(mode)}>{emoji}</Button>
       </div>
     </div>
