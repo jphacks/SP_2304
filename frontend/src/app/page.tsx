@@ -1,44 +1,46 @@
-'use client'
-import { useState, useEffect, createContext } from 'react'
-import SideBar from '@/components/SideBar'
-import styles from './_css/style.module.scss'
-import { IconButton, Button } from '@mui/material'
-import Reaction from './_components/Reaction'
-import Indulgence from './_components/Indulgence'
-import Content from './_components/Content'
-import Push from './_components/Push'
+"use client";
+import { useState } from "react";
+
+import SideBar from "@/components/SideBar";
+
+import Content from "./_components/Content";
+import Indulgence from "./_components/Indulgence";
+import Push from "./_components/Push";
+import Reaction from "./_components/Reaction";
+import styles from "./_css/utils.module.scss";
 
 export default function Home() {
   const [phase, setPhase] = useState<number>(0);
-  const [mode, setMode] = useState('None');
+  const [mode, setMode] = useState("None");
   const [count, setCount] = useState(0);
 
-  const handlePhaseChange = (phase_: number, mode_: string, count_: number, indulgenceContent: string) => {
+  const handlePhaseChange = (
+    phase_: number,
+    mode_: string,
+    count_: number,
+    indulgenceContent: string,
+  ) => {
     setPhase(phase_);
     setMode(mode_);
-    if(phase_ == 3) setCount(count_);
+    if (phase_ == 2) setCount(count_);
     else setCount(0);
 
-    if(phase_ == 4){
-      const data = {
-
-      }
+    if (phase_ == 3) {
+      const data = {};
       Push(count_, indulgenceContent);
 
       setPhase(0);
     }
-
-
   };
 
-
   return (
-    <main>
+    <main className={styles.sideBySide}>
       {phase == 0 && <SideBar />}
-      {phase == 0 && <Reaction onPhaseChange={handlePhaseChange} />}
-      {(phase == 1 || phase == 2) && <Indulgence mode={mode} onPhaseChange={handlePhaseChange} />}
-      {phase == 3 && <Content mode={mode} count={count} onPhaseChange={handlePhaseChange} />}
-
+      <div className={styles.putCenter}>
+        {phase == 0 && <Reaction onPhaseChange={handlePhaseChange} />}
+        {phase == 1 && <Indulgence mode={mode} onPhaseChange={handlePhaseChange} />}
+        {phase == 2 && <Content count={count} mode={mode} onPhaseChange={handlePhaseChange} />}
+      </div>
     </main>
-  )
+  );
 }

@@ -1,0 +1,17 @@
+.faceButtonWrapper {
+  display: flex;
+
+  //横
+  justify-content: center;
+  width: calc(100vw - 5rem);
+}
+
+
+.context{
+  text-align: center;
+}
+
+.appTitle{
+  composes: context;
+  width: 100%;
+}

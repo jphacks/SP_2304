@@ -1,0 +1,14 @@
+.closeButton{
+  composes: closeButton from './utils.module.scss';
+}
+
+.contentWrapper{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.contentForm{
+  composes: putCenter from './utils.module.scss';
+}

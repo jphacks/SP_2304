@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from 'react'
-import TLFetch from './TLFetch';
-import styles from '../_css/style.module.scss'
-import { TodoTypes, IndulgenceTypes } from './types/Types';
-import { v4 as uuidv4} from 'uuid'
+import React, { useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 
+import styles from "../_css/style.module.scss";
+
+import TLFetch from "./TLFetch";
+import { IndulgenceTypes } from "./types/Types";
 
 const TLIndulgence = () => {
-  const [data, setData] = useState<IndulgenceTypes[]>([])
-  const uuid = 'template'
+  const [data, setData] = useState<IndulgenceTypes[]>([]);
+  const uuid = "template";
   useEffect(() => {
     const fetch = async () => {
-      const data_ = await TLFetch(uuid, 'indulgences');
-      for(let datum of data_){
-        setData((data) => ([...data, datum]));
+      const data_ = await TLFetch(uuid, "indulgences");
+      for (let datum of data_) {
+        setData((data) => [...data, datum]);
       }
       // setData((data) => ([...data, data_]))
-    }
+    };
     fetch();
   }, []);
 
   // console.log(data);
 
-
   return (
     <div className={styles.TLWrapper}>
-      {(data!.map((datum) =>
+      {data!.map((datum) => (
         <React.Fragment key={uuidv4()}>
           <div className={styles.cell}>
             <p className={styles.date}>{datum.time}</p>
@@ -34,7 +34,7 @@ const TLIndulgence = () => {
         </React.Fragment>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default TLIndulgence
+export default TLIndulgence;

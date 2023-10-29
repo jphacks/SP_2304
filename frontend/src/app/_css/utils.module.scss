@@ -1,0 +1,34 @@
+/* 閉じるボタン */
+.closeButton{
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+}
+
+
+/* 両端揃え */
+.spaceBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 横並び（基本形） */
+.sideBySide {
+  display: flex;
+  flex-direction: row;
+}
+
+/* 横並び（中央縦揃え） */
+.sideBySideCenter {
+  composes: sideBySide;
+  align-items: center;
+}
+
+/* 画面中央に配置 */
+.putCenter{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
