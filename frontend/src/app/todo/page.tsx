@@ -5,6 +5,7 @@ import SideBar from "@/components/SideBar";
 
 import TodoForm from "./_components/TodoForm";
 import styles from "./_css/style.module.scss";
+import Excuse from "./_components/Excuse";
 
 type ContextType = {
   phase: number;
@@ -26,6 +27,7 @@ export default function Home() {
       <PhaseContext.Provider value={{ phase, setPhase }}>
         <div className={styles.main}>
           <TodoForm setContent={setContent} />
+          {phase != 0 && <Excuse content={content} />}
         </div>
       </PhaseContext.Provider>
     </main>
