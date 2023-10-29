@@ -44,11 +44,7 @@ const IndulgenceList = () => {
                 </ListItemIcon>
               </ListItemButton>
 
-              <ListItemText
-                id={labelId}
-                primary={datum.tags.join('/')}
-                secondary={datum.time}
-                />
+              <ListItemText id={labelId} primary={datum.tags.join("/")} secondary={datum.time} />
             </ListItem>
           </React.Fragment>
         );

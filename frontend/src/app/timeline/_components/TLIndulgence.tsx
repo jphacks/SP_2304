@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
+import { IndulgenceTypes } from "../../../types/Types";
 import styles from "../_css/style.module.scss";
 
 import TLFetch from "./TLFetch";
-import { IndulgenceTypes } from "../../../types/Types";
 
 const TLIndulgence = () => {
   const [data, setData] = useState<IndulgenceTypes[]>([]);
@@ -29,7 +29,7 @@ const TLIndulgence = () => {
           <div className={styles.cell}>
             <p className={styles.date}>{datum.time}</p>
             <p className={styles.content}>{datum.content}</p>
-            <p className={styles.tags}>{datum.tags.join('/')}</p>
+            <p className={styles.tags}>{datum.tags.join("/")}</p>
           </div>
         </React.Fragment>
       ))}

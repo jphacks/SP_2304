@@ -1,13 +1,21 @@
 import { Close } from "@mui/icons-material";
 import { IconButton, Button, TextField } from "@mui/material";
 import React, { useState } from "react";
-import TagFetch from "./TagFetch";
+
 import styles from "../_css/Content.module.scss";
+
+import TagFetch from "./TagFetch";
 
 type Props = {
   count: number;
   mode: string;
-  onPhaseChange: (phase: number, mode: string, count: number, content: string, tags: string[]) => void;
+  onPhaseChange: (
+    phase: number,
+    mode: string,
+    count: number,
+    content: string,
+    tags: string[],
+  ) => void;
 };
 
 const Content = (props: Props) => {
@@ -21,10 +29,10 @@ const Content = (props: Props) => {
 
   const handleSubPhase = async () => {
     const tags_: any = await TagFetch(dbIndulgenceContent);
-    for(let key in tags_){
+    for (let key in tags_) {
       setTags((tags) => [...tags, tags_[key]]);
     }
-  }
+  };
 
   const face: { [key: string]: string } = {
     benefaction: "🥰",
@@ -59,18 +67,9 @@ const Content = (props: Props) => {
           </div>
           <div className={styles.tags}>
             <div className={styles.tagsText}>
-              <TextField
-                variant="outlined"
-                defaultValue={tags[0]}
-              />
-              <TextField
-                variant="outlined"
-                defaultValue={tags[1]}
-              />
-              <TextField
-                variant="outlined"
-                defaultValue={tags[2]}
-              />
+              <TextField defaultValue={tags[0]} variant="outlined" />
+              <TextField defaultValue={tags[1]} variant="outlined" />
+              <TextField defaultValue={tags[2]} variant="outlined" />
             </div>
             <Button
               className={styles.text}
@@ -84,9 +83,11 @@ const Content = (props: Props) => {
           </div>
 
           <Button
-            variant="contained"
             onClick={() => onPhaseChange(3, "None", count, dbIndulgenceContent, tags)}
-          >記録する</Button>
+            variant="contained"
+          >
+            記録する
+          </Button>
         </div>
       </div>
     </div>

@@ -4,8 +4,8 @@ export type TodoTypes = {
   id: string;
   indulgences: string[];
   is_done: boolean;
-  time: any
-}
+  time: any;
+};
 
 export type IndulgenceTypes = {
   content: string;
@@ -13,5 +13,5 @@ export type IndulgenceTypes = {
   is_used: boolean;
   point: 0;
   tags: string[];
-  time: any
-}
+  time: any;
+};
