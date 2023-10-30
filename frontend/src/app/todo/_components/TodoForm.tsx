@@ -24,7 +24,10 @@ const TodoForm = (props: Props) => {
 
   const validationRules = {
     content: {
-      required: "概要を入力してください。",
+      required: {
+        value: true,
+        message: "概要を入力してください。"
+      },
     },
   };
 
