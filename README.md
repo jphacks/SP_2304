@@ -2,6 +2,13 @@
 
 [![IMAGE ALT TEXT HERE](https://jphacks.com/wp-content/uploads/2023/07/JPHACKS2023_ogp.png)](https://www.youtube.com/watch?v=yYRQEdfGjEg)
 ![thumbnail](./product_info/thumbnail.png)
+
+## 製品・デモurl
+
+https://ramenzaifu.vercel.app/
+
+https://www.youtube.com/channel/UCTZHq319xnfO5uMSuN6u2fQ
+
 ## 製品概要
 ### 背景(製品開発のきっかけ、課題等）
 人は一般に深夜にラーメンを食べたくなる生き物ですが、その行いは強い罪悪感を伴います。  
