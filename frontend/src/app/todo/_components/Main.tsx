@@ -3,6 +3,7 @@ import { Button } from "@mui/material";
 import { useState, createContext } from "react";
 
 import styles from "@/app/_css/utils.module.scss";
+import main from "../_css/Main.module.scss"
 
 import Excuse from "./Excuse";
 import IndulgenceList from "./IndulgenceList";
@@ -41,7 +42,7 @@ export default function Main() {
       {phase != 0 && content != "" && (
         <>
           <Button
-            className={styles.button}
+            className={main.button}
             onClick={() => {
               setPhase(0);
               setContent("");

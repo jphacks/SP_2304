@@ -5,19 +5,27 @@ const TagFetch = async (content: string) => {
     sentence: content,
   };
 
-  const res = await fetch("http://127.0.0.1:8000/api/goolabs/morph", {
+  const url = 'https://ramenzaifu.fly.dev/api/goolabs/morph'
+
+  const data_ = await fetch(url, {
     body: JSON.stringify(data),
     cache: "no-store",
     headers: {
       "Content-Type": "application/json",
     },
     method: "POST",
-  });
+  })
+    .then(async (res) => {
+      const data_ = await res.json();
+      return data_
+    })
+    .catch(async (res) => {
+      const data_ = ['', '', ''];
+      console.log(`Tag fetch failed with the following error(s): ${res.error}`)
+      return data_
+    })
 
-  const data_ = await res.json();
-  // console.log(data_);
-
-  return data_;
+  return data_
 };
 
 export default TagFetch;

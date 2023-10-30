@@ -31,11 +31,21 @@ export default function Home() {
   return (
     <main className={styles.sideBySide}>
       {phase == 0 && <SideBar sideBarId={0} />}
-      <div className={styles.putCenter}>
-        {phase == 0 && <Reaction onPhaseChange={handlePhaseChange} setMode={setMode} />}
-        {phase == 1 && <Indulgence mode={mode} onPhaseChange={handlePhaseChange} setRootCount={setCount} />}
-        {phase == 2 && <Content count={count} mode={mode} onPhaseChange={handlePhaseChange} setRootContent={setContent} setRootTags={setTags} />}
-      </div>
+      {phase == 0 &&
+        <div className={`${styles.putCenter} ${styles.sideBarComp}`}>
+          <Reaction onPhaseChange={handlePhaseChange} setMode={setMode} />
+        </div>
+      }
+      {phase == 1 &&
+        <div className={styles.putCenter}>
+          <Indulgence mode={mode} onPhaseChange={handlePhaseChange} setRootCount={setCount} />
+        </div>
+      }
+      {phase == 2 &&
+        <div className={styles.putCenter}>
+          <Content count={count} mode={mode} onPhaseChange={handlePhaseChange} setRootContent={setContent} setRootTags={setTags} />
+        </div>
+      }
     </main>
   );
 }

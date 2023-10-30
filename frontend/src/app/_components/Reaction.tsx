@@ -20,7 +20,7 @@ const Reaction = (props: Props) => {
 
   return (
     <div>
-      <figure>
+      <figure className={styles.logo}>
         <Image
           alt="title"
           layout="responsive"

@@ -29,6 +29,7 @@ const Content = (props: Props) => {
 
   const handleSubPhase = async () => {
     const tags_: any = await TagFetch(content);
+    setTags([]);
     for (let key in tags_) {
       setTags((tags) => [...tags, tags_[key]]);
     }

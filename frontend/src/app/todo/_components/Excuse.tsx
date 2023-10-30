@@ -16,39 +16,35 @@ const Excuse = (props: Props) => {
     sentence: content,
   };
 
-  const url = 'http://localhost:8000/api/openai/excuse'
+  const url = 'https://ramenzaifu.fly.dev/api/openai/excuse'
 
   console.log(data);
 
   const [gptExcuse, setGPTExcuse] = useState("");
   useEffect(() => {
     const fetchExcuse = async () => {
-      // await fetch(url).then((res) => {
-      //   const {status, ok} = res;
-      //   return res.json().then((d) => {
-      //     if(ok){
-      //       // const
-      //     }
-      //   })
-      // });
-
-      const res = await fetch("http://127.0.0.1:8000/api/openai/excuse", {
+      const excuse_ = await fetch(url, {
         body: JSON.stringify(data),
         cache: "no-store",
         headers: {
           "Content-Type": "application/json",
         },
         method: "POST",
-      });
+      })
+        .then(async (res) => {
+          const data_ = await res.json();
+          return  data_.content;
+        })
+        .catch(async (res) => {
+          console.log(`Excuse generation failed due to the following error(s): ${res.error}`)
+          return '良い言い訳が思いつかなかったようです...'
+        })
 
-      const data_ = await res.json();
-      const excuse_ = data_.content;
       setGPTExcuse(excuse_);
       setExcuse(excuse_);
     };
 
     fetchExcuse();
-    setExcuse('テスト');
   }, []);
 
   return (

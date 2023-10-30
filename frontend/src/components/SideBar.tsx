@@ -15,7 +15,11 @@ const SideBar = (props: Props) => {
 
   return (
     <div className={styles.sideBarWrapper}>
-      <Drawer anchor="left" open={true} variant="persistent">
+      <Drawer anchor="left" open={true} variant="persistent"
+        sx={{
+          width: "4rem",
+        }}
+      >
         <List className={styles.iconList}>
           <Link href="/">
             <ListItem className={sideBarId == 0 ? styles.onState : styles.offState}>
