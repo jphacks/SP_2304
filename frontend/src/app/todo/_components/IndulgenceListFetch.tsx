@@ -1,7 +1,7 @@
 "use server";
 
 import { initializeApp } from "firebase/app";
-import { doc, getDoc, getFirestore } from "firebase/firestore";
+import { DocumentData, collection, doc, getDoc, getDocs, getFirestore, query, where } from "firebase/firestore";
 
 import firebaseConfig from "@/components/FirebaseConfig";
 import { IndulgenceTypes } from "@/types/Types";
@@ -10,22 +10,18 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const IndulgenceListFetch = async (uuid: string) => {
-  const docRef = doc(db, "user_data", uuid);
-  const docSnap = await getDoc(docRef);
-
-  if (docSnap.exists()) {
-    // console.log(docSnap);
-  } else {
-    console.log("Indulgences" + " with uuid of " + uuid + " does not exist.");
-    return null;
-  }
-
-  const data = docSnap.data().indulgences.map((datum: IndulgenceTypes) => {
+  const colRef = collection(db, "user_data", uuid, 'indulgences');
+  const q = query(colRef, where("is_used", "==", false))
+  const querySnap = await getDocs(q);
+  // const docSnap = await getDoc(colRef);
+  const data: DocumentData[] = [];
+  querySnap.forEach((doc) => {
+    const datum = doc.data();
     datum.time = datum.time.toDate().toLocaleDateString();
-    return datum;
-  });
+    data.push(datum);
+  })
 
-  return data.filter((datum: IndulgenceTypes) => !datum.is_used);
+  return data;
 };
 
 export default IndulgenceListFetch;
