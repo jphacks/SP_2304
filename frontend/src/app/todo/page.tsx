@@ -1,5 +1,5 @@
 import styles from "@/app/_css/utils.module.scss";
-import styles2 from "@/app/todo/_css/style.module.scss";
+import main from "@/app/todo/_css/Main.module.scss";
 import SideBar from "@/components/SideBar";
 
 import Main from "./_components/Main";
@@ -13,7 +13,7 @@ export default function Home() {
     <div className={styles.sideBySide}>
       <SideBar sideBarId={2} />
 
-      <div className={styles2.todoFormWrapper}>
+      <div className={main.todoFormWrapper}>
         <Main />
       </div>
     </div>

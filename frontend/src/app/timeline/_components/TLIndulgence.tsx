@@ -1,13 +1,13 @@
+import { DocumentData } from "firebase/firestore";
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { IndulgenceTypes } from "../../../types/Types";
 import styles from "../_css/style.module.scss";
 
 import TLFetch from "./TLFetch";
 
 const TLIndulgence = () => {
-  const [data, setData] = useState<IndulgenceTypes[]>([]);
+  const [data, setData] = useState<DocumentData[]>([]);
   const uuid = "template";
   useEffect(() => {
     const fetch = async () => {

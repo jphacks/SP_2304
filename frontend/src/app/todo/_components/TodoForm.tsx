@@ -2,7 +2,7 @@ import { TextField, Button } from "@mui/material";
 import React, { useContext } from "react";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 
-import styles from "../_css/style.module.scss";
+import styles from "../_css/Main.module.scss";
 
 import { PhaseContext } from "./Main";
 
@@ -24,7 +24,10 @@ const TodoForm = (props: Props) => {
 
   const validationRules = {
     content: {
-      required: "概要を入力してください。",
+      required: {
+        message: "概要を入力してください。",
+        value: true
+      },
     },
   };
 

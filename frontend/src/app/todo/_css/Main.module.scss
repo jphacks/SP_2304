@@ -9,6 +9,7 @@
 .todoFormWrapper {
   composes: putCenter from "@/app/_css/utils.module.scss";
   width: calc(100vw - 4rem);
+  transition: all 0.3s ease-out;
 
   .formContent {
     margin-bottom: 1rem;
@@ -17,7 +18,7 @@
     display: inline-block;
   }
 
-  button {
-    margin: 1rem, 0;
+  .button {
+    margin: 1rem 0;
   }
 }

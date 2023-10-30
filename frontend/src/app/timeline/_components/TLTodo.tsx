@@ -1,13 +1,13 @@
+import { DocumentData } from "firebase/firestore";
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { TodoTypes } from "../../../types/Types";
 import styles from "../_css/style.module.scss";
 
 import TLFetch from "./TLFetch";
 
 const TLTodo = () => {
-  const [data, setData] = useState<TodoTypes[]>([]);
+  const [data, setData] = useState<DocumentData[]>([]);
   const uuid = "template";
   useEffect(() => {
     const fetch = async () => {
