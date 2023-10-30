@@ -1,6 +1,8 @@
 import { TextField, CircularProgress } from "@mui/material";
 import React, { useEffect, useState, useContext } from "react";
+
 import styles from '../_css/Excuse.module.scss'
+
 import { ExcuseContext } from "./Main";
 
 type Props = {
@@ -21,14 +23,14 @@ const Excuse = (props: Props) => {
   const [gptExcuse, setGPTExcuse] = useState("");
   useEffect(() => {
     const fetchExcuse = async () => {
-      await fetch(url).then((res) => {
-        const {status, ok} = res;
-        return res.json().then((d) => {
-          if(ok){
-            // const 
-          }
-        })
-      });
+      // await fetch(url).then((res) => {
+      //   const {status, ok} = res;
+      //   return res.json().then((d) => {
+      //     if(ok){
+      //       // const
+      //     }
+      //   })
+      // });
 
       const res = await fetch("http://127.0.0.1:8000/api/openai/excuse", {
         body: JSON.stringify(data),
@@ -62,8 +64,8 @@ const Excuse = (props: Props) => {
       {excuse === "" &&
         <div className={styles.progressModal}>
           <CircularProgress
-            color="inherit"
             className={styles.progress}
+            color="inherit"
           />
         </div>
       }
