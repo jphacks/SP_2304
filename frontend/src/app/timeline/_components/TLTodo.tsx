@@ -5,9 +5,10 @@ import { TodoTypes } from "../../../types/Types";
 import styles from "../_css/style.module.scss";
 
 import TLFetch from "./TLFetch";
+import { DocumentData } from "firebase/firestore";
 
 const TLTodo = () => {
-  const [data, setData] = useState<TodoTypes[]>([]);
+  const [data, setData] = useState<DocumentData[]>([]);
   const uuid = "template";
   useEffect(() => {
     const fetch = async () => {

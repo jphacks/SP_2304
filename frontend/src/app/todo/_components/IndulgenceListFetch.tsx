@@ -25,7 +25,7 @@ const IndulgenceListFetch = async (uuid: string) => {
     return datum;
   });
 
-  return data;
+  return data.filter((datum: IndulgenceTypes) => !datum.is_used);
 };
 
 export default IndulgenceListFetch;

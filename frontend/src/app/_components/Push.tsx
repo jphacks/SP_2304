@@ -1,6 +1,6 @@
 "use server";
 import { initializeApp } from "firebase/app";
-import { doc, updateDoc, getFirestore, arrayUnion } from "firebase/firestore";
+import { doc, updateDoc, getFirestore, arrayUnion, setDoc, collection, addDoc } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
 
 const firebaseConfig = {
@@ -18,19 +18,19 @@ const db = getFirestore(app);
 
 const Push = async (point: number, content: string, tags: string[]) => {
   const time = new Date();
+  const uuid = uuidv4();
   const data = {
     content: content,
-    id: uuidv4(),
+    id: uuid,
     is_used: false,
     point: point,
     tags: tags,
     time: time,
   };
 
-  const indulgenceRef = doc(db, "user_data", "template");
-  await updateDoc(indulgenceRef, {
-    indulgences: arrayUnion(data),
-  });
+  const indulgenceRef = doc(db, "user_data", "template", "indulgences", uuid);
+  console.log(data);
+  await setDoc(indulgenceRef, data);
 };
 
 export default Push;

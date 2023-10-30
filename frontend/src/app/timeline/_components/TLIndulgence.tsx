@@ -5,9 +5,10 @@ import { IndulgenceTypes } from "../../../types/Types";
 import styles from "../_css/style.module.scss";
 
 import TLFetch from "./TLFetch";
+import { DocumentData } from "firebase/firestore";
 
 const TLIndulgence = () => {
-  const [data, setData] = useState<IndulgenceTypes[]>([]);
+  const [data, setData] = useState<DocumentData[]>([]);
   const uuid = "template";
   useEffect(() => {
     const fetch = async () => {
