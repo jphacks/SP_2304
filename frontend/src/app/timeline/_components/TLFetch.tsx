@@ -10,12 +10,13 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const TLFetch = async (uuid: string, dataType: string) => {
-  const colRef = collection(db, "user_data", uuid, 'todos');
+  const colRef = collection(db, "user_data", uuid, dataType);
   const q = query(colRef);
   const querySnap = await getDocs(q);
   const data: DocumentData[] = [];
   querySnap.forEach((doc) => {
     const datum = doc.data();
+    // console.log(datum);
     datum.time = datum.time.toDate().toLocaleDateString();
     data.push(datum);
   });
