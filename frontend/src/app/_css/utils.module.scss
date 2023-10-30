@@ -16,6 +16,7 @@
 .sideBySide {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 /* 横並び（中央縦揃え） */
@@ -31,4 +32,8 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
+}
+
+.sideBarComp {
+  width: calc(100vw - 4rem);
 }
