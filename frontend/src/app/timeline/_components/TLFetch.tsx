@@ -12,7 +12,7 @@ const db = getFirestore(app);
 
 const TLFetch = async (uuid: string, dataType: string) => {
   const colRef = collection(db, "user_data", uuid, 'todos');
-  const q = dataType === 'indulgences' ? query(colRef, where("is_used", "==", false)) : query(colRef);
+  const q = query(colRef);
   const querySnap = await getDocs(q);
   const data: DocumentData[] = [];
   querySnap.forEach((doc) => {

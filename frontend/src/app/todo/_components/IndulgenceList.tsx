@@ -14,9 +14,10 @@ import { IndulgenceTypes } from "@/types/Types";
 import styles from "../_css/IndulgenceList.module.scss";
 
 import IndulgenceListFetch from "./IndulgenceListFetch";
+import { DocumentData } from "firebase/firestore";
 
 const IndulgenceList = () => {
-  const [data, setData] = useState<IndulgenceTypes[]>([]);
+  const [data, setData] = useState<DocumentData[]>([]);
   const uuid = "template";
   useEffect(() => {
     const fetchIndulgences = async () => {
