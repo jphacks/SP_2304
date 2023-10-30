@@ -1,6 +1,6 @@
 "use server";
 import { initializeApp } from "firebase/app";
-import { doc, updateDoc, getFirestore, arrayUnion, setDoc, collection, addDoc } from "firebase/firestore";
+import { doc, getFirestore, setDoc } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
 
 const firebaseConfig = {

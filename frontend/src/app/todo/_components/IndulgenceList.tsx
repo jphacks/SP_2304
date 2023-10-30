@@ -6,15 +6,14 @@ import {
   ListItemButton,
   Checkbox,
 } from "@mui/material";
+import { DocumentData } from "firebase/firestore";
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { IndulgenceTypes } from "@/types/Types";
 
 import styles from "../_css/IndulgenceList.module.scss";
 
 import IndulgenceListFetch from "./IndulgenceListFetch";
-import { DocumentData } from "firebase/firestore";
 
 const IndulgenceList = () => {
   const [data, setData] = useState<DocumentData[]>([]);
