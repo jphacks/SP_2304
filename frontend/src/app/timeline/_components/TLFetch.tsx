@@ -1,11 +1,10 @@
 "use server";
 
 import { initializeApp } from "firebase/app";
-import { DocumentData, collection, doc, getDoc, getDocs, getFirestore, query, where } from "firebase/firestore";
+import { DocumentData, collection, getDocs, getFirestore, query } from "firebase/firestore";
 
 import firebaseConfig from "@/components/FirebaseConfig";
 
-import { TodoTypes, IndulgenceTypes } from "../../../types/Types";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
