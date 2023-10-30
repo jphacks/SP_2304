@@ -44,7 +44,9 @@ const Excuse = (props: Props) => {
       setExcuse(excuse_);
     };
 
-    fetchExcuse();
+    // fetchExcuse();
+    setGPTExcuse('テスト')
+    setExcuse('テスト')
   }, []);
 
   return (
