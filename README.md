@@ -5,6 +5,8 @@
 
 ## 製品・デモurl
 
+**※スマートフォン上で開くことを想定しています**
+
 https://ramenzaifu.vercel.app/
 
 https://www.youtube.com/channel/UCTZHq319xnfO5uMSuN6u2fQ
