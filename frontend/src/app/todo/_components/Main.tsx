@@ -1,6 +1,6 @@
 "use client";
-import { Button, Collapse, IconButton } from "@mui/material";
 import { Close } from "@mui/icons-material";
+import { Button, Collapse, IconButton } from "@mui/material";
 import { useState, createContext } from "react";
 import { TransitionGroup } from "react-transition-group";
 
@@ -50,9 +50,9 @@ export default function Main() {
       }
       <PhaseContext.Provider value={{ phase, setPhase }}>
         <TransitionGroup>
-          <TodoForm setRootContent={setContent} setExcuse={setExcuse} />
+          <TodoForm setExcuse={setExcuse} setRootContent={setContent} />
         </TransitionGroup>
-        <Collapse in={phase} className={main.collapse}>
+        <Collapse className={main.collapse} in={phase}>
             <>
               {/* <ExcuseContext.Provider value={{ excuse, setExcuse }}> */}
               <Excuse excuse={excuse} />

@@ -1,4 +1,3 @@
-import React from 'react'
 
 const ExcuseFetch = async (content: string) => {
   console.log('-------------')

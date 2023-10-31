@@ -1,15 +1,15 @@
 import { TextField, Button } from "@mui/material";
-import React, { createContext, useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 
 import styles from "../_css/Main.module.scss";
 
-import { PhaseContext } from "./Main";
 import ExcuseFetch from "./ExcuseFetch";
+import { PhaseContext } from "./Main";
 
 type Props = {
+  setExcuse: (excuse: string) => void,
   setRootContent: (content: string) => void;
-  setExcuse: (excuse: string) => void
 };
 
 type Inputs = {
@@ -36,7 +36,7 @@ const TodoForm = (props: Props) => {
   const onSubmit: SubmitHandler<Inputs> = async (data: Inputs) => {
     setRootContent(data.content);
     setPhase(true);
-    setExcuse(await ExcuseFetch(data.content))
+    setExcuse(await ExcuseFetch(data.content));
     // console.log(phase);
   };
 
@@ -53,11 +53,11 @@ const TodoForm = (props: Props) => {
             <TextField
               {...field}
               className={styles.formContent}
-              label="やりたいこと"
-              multiline
               inputProps={{
                 readOnly: phase
               }}
+              label="やりたいこと"
+              multiline
             />
           )}
           rules={validationRules.content}
