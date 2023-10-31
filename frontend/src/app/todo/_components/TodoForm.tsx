@@ -4,10 +4,12 @@ import { useForm, SubmitHandler, Controller } from "react-hook-form";
 
 import styles from "../_css/Main.module.scss";
 
+import ExcuseFetch from "./ExcuseFetch";
 import { PhaseContext } from "./Main";
 
 type Props = {
-  setContent: (content: string) => void;
+  setExcuse: (excuse: string) => void,
+  setRootContent: (content: string) => void;
 };
 
 type Inputs = {
@@ -15,7 +17,7 @@ type Inputs = {
 };
 
 const TodoForm = (props: Props) => {
-  const { setContent } = props;
+  const { setRootContent, setExcuse } = props;
   const {
     control,
     handleSubmit,
@@ -31,9 +33,10 @@ const TodoForm = (props: Props) => {
     },
   };
 
-  const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
-    setContent(data.content);
-    setPhase(1);
+  const onSubmit: SubmitHandler<Inputs> = async (data: Inputs) => {
+    setRootContent(data.content);
+    setPhase(true);
+    setExcuse(await ExcuseFetch(data.content));
     // console.log(phase);
   };
 
@@ -47,11 +50,19 @@ const TodoForm = (props: Props) => {
           control={control}
           name="content"
           render={({ field }) => (
-            <TextField {...field} className={styles.formContent} label="やりたいこと" multiline />
+            <TextField
+              {...field}
+              className={styles.formContent}
+              inputProps={{
+                readOnly: phase
+              }}
+              label="やりたいこと"
+              multiline
+            />
           )}
           rules={validationRules.content}
         />
-        {phase == 0 && (
+        {!phase && (
           <Button className={styles.formButton} type="submit" variant="contained">
             次へ
           </Button>

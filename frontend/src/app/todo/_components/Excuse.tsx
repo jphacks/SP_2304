@@ -1,51 +1,23 @@
 import { TextField, CircularProgress } from "@mui/material";
-import React, { useEffect, useState, useContext } from "react";
+import React from "react";
 
 import styles from '../_css/Excuse.module.scss'
 
-import { ExcuseContext } from "./Main";
+// import { ExcuseContext } from "./Main";
 
 type Props = {
-  content: string;
+  excuse: string;
 };
 
 const Excuse = (props: Props) => {
-  const { content } = props;
-  const { excuse, setExcuse } = useContext(ExcuseContext);
-  const data = {
-    sentence: content,
-  };
+  const { excuse } = props;
+  // const { excuse, setExcuse } = useContext(ExcuseContext);
 
-  const url = 'https://ramenzaifu.fly.dev/api/openai/excuse'
 
-  console.log(data);
+  // if(phase) console.log(data);
 
-  const [gptExcuse, setGPTExcuse] = useState("");
-  useEffect(() => {
-    const fetchExcuse = async () => {
-      const excuse_ = await fetch(url, {
-        body: JSON.stringify(data),
-        cache: "no-store",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-      })
-        .then(async (res) => {
-          const data_ = await res.json();
-          return  data_.content;
-        })
-        .catch(async (res) => {
-          console.log(`Excuse generation failed due to the following error(s): ${res.error}`)
-          return '良い言い訳が思いつかなかったようです...'
-        })
-
-      setGPTExcuse(excuse_);
-      setExcuse(excuse_);
-    };
-
-    fetchExcuse();
-  }, []);
+    // setGPTExcuse('test');
+    // setExcuse('test');
 
   return (
     <div className={styles.excuseField}>
@@ -53,7 +25,7 @@ const Excuse = (props: Props) => {
         InputProps={{
           readOnly: true,
         }}
-        defaultValue={gptExcuse}
+        defaultValue={excuse}
         multiline
         rows={4}
       />
