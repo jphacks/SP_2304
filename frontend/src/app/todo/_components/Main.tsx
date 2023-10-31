@@ -1,5 +1,6 @@
 "use client";
-import { Button, Collapse } from "@mui/material";
+import { Button, Collapse, IconButton } from "@mui/material";
+import { Close } from "@mui/icons-material";
 import { useState, createContext } from "react";
 import { TransitionGroup } from "react-transition-group";
 
@@ -29,31 +30,47 @@ export default function Main() {
   const [phase, setPhase] = useState(false);
   const [excuse, setExcuse] = useState("");
 
+  const reset = () =>{
+    setPhase(false);
+    setContent("");
+    setExcuse("");
+  }
+
   // console.log(content);
 
   return (
-    <PhaseContext.Provider value={{ phase, setPhase }}>
-      <TransitionGroup>
-        <TodoForm setContent={setContent} />
-
-        <Collapse in={phase}>
-          <ExcuseContext.Provider value={{ excuse, setExcuse }}>
-            <Excuse content={content} />
-          </ExcuseContext.Provider>
-          <Button
-            className={main.button}
-            onClick={() => {
-              setPhase(false);
-              setContent("");
-              if (excuse !== "") Push(content, excuse);
-            }}
-            variant="contained"
-          >
-            納得した！
-          </Button>
-          <IndulgenceList />
+    <>
+      {phase &&
+        <IconButton
+          className={main.closeButton}
+          onClick={() => (reset())}
+        >
+          <Close />
+        </IconButton>
+      }
+      <PhaseContext.Provider value={{ phase, setPhase }}>
+        <TransitionGroup>
+          <TodoForm setRootContent={setContent} setExcuse={setExcuse} />
+        </TransitionGroup>
+        <Collapse in={phase} className={main.collapse}>
+            <>
+              {/* <ExcuseContext.Provider value={{ excuse, setExcuse }}> */}
+              <Excuse excuse={excuse} />
+              {/* </ExcuseContext.Provider> */}
+              <Button
+                className={main.button}
+                onClick={() => {
+                  if (excuse !== "") Push(content, excuse);
+                  reset();
+                }}
+                variant="contained"
+              >
+                納得した！
+              </Button>
+              <IndulgenceList />
+            </>
         </Collapse>
-      </TransitionGroup>
-    </PhaseContext.Provider>
+      </PhaseContext.Provider>
+    </>
   );
 }
