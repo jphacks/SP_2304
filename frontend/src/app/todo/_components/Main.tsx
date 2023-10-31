@@ -1,6 +1,7 @@
 "use client";
-import { Button } from "@mui/material";
+import { Button, Collapse } from "@mui/material";
 import { useState, createContext } from "react";
+import { TransitionGroup } from "react-transition-group";
 
 import main from "../_css/Main.module.scss"
 
@@ -11,8 +12,8 @@ import TodoForm from "./TodoForm";
 
 
 type ContextType = {
-  phase: number;
-  setPhase: (value: number) => void;
+  phase: boolean;
+  setPhase: (value: boolean) => void;
 };
 
 type excuseContextType = {
@@ -25,25 +26,24 @@ export const ExcuseContext = createContext<excuseContextType>({} as excuseContex
 
 export default function Main() {
   const [content, setContent] = useState("");
-  const [phase, setPhase] = useState(0);
+  const [phase, setPhase] = useState(false);
   const [excuse, setExcuse] = useState("");
 
   // console.log(content);
 
   return (
     <PhaseContext.Provider value={{ phase, setPhase }}>
-      <TodoForm setContent={setContent} />
-      {phase != 0 && (
-        <ExcuseContext.Provider value={{ excuse, setExcuse }}>
-          <Excuse content={content} />
-        </ExcuseContext.Provider>
-      )}
-      {phase != 0 && content != "" && (
-        <>
+      <TransitionGroup>
+        <TodoForm setContent={setContent} />
+
+        <Collapse in={phase}>
+          <ExcuseContext.Provider value={{ excuse, setExcuse }}>
+            <Excuse content={content} />
+          </ExcuseContext.Provider>
           <Button
             className={main.button}
             onClick={() => {
-              setPhase(0);
+              setPhase(false);
               setContent("");
               if (excuse !== "") Push(content, excuse);
             }}
@@ -52,8 +52,8 @@ export default function Main() {
             納得した！
           </Button>
           <IndulgenceList />
-        </>
-      )}
+        </Collapse>
+      </TransitionGroup>
     </PhaseContext.Provider>
   );
 }
